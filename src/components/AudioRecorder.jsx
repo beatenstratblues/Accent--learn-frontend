@@ -141,7 +141,7 @@ function AudioRecorder() {
                     <button onClick={() => downloadBlob(audioBlob, 'recorded_audio.webm')}>
                         Download Audio
                     </button>
-                    <audio controls src={URL.createObjectURL(audioBlob)} />
+                    {/* <audio controls src={URL.createObjectURL(audioBlob)} /> */}
                 </div>
             )}
         </div>
