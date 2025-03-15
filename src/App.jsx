@@ -6,6 +6,7 @@ import LettersPage from './pages/LettersPage';
 import WordsPages from './pages/WordsPages';
 import ProfilePage from './pages/ProfilePage';
 import QuestsPage from './pages/QuestsPage';
+import DailyPage from './pages/DailyPage';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path="words" element={<WordsPages />} />
             <Route path="quests" element={<QuestsPage />} />
             <Route path="profile" element={<ProfilePage />} />
+            <Route path="daily" element={<DailyPage />} />
           </Route>
         </Routes>
     </Router>
