@@ -21,7 +21,7 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path="letters" element={<LettersPage />} />
             <Route path="words" element={<WordsPages />} />
-            <Route path="quests" element={<QuestsPage />} />
+            <Route path="quests" element={<DailyPage />} />
             <Route path="profile" element={<ProfilePage />} />
             <Route path="daily" element={<DailyPage />} />
           </Route>

@@ -46,7 +46,7 @@ function HomePage() {
     },
     {
       id: 3,
-      title: "Daily Challenge",
+      title: "Daily Quest",
       description: "Complete today's pronunciation task",
       difficulty: "Mixed",
       path: "/daily",

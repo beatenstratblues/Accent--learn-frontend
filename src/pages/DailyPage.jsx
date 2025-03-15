@@ -31,7 +31,7 @@ const DailyPage = () => {
   return (
     <div className='challengePage'>
       <div className='pageTitle'>
-        Daily Challenge
+        Daily Quest &nbsp;
         <img width="40" height="40" src="https://img.icons8.com/fluency/48/calendar.png" alt="calendar"/>
       </div>
       
