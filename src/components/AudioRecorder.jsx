@@ -116,30 +116,32 @@ function AudioRecorder() {
     };
 
     return (
-        <div>
+        <div className='audio-record'>
             <input
                 type="text"
-                placeholder="Reference Text"
+                placeholder="Type your word"
                 value={referenceText}
                 onChange={handleTextChange}
             />
             {recording ? (
-                <button onClick={stopRecording}>Stop Recording</button>
+                <button onClick={stopRecording}><img width="48" height="48" src="https://img.icons8.com/flat-round/64/stop.png" alt="stop"/></button>
             ) : (
-                <button onClick={startRecording}>Start Recording</button>
+                <button onClick={startRecording}><img width="48" height="48" src="https://img.icons8.com/color/48/microphone.png" alt="microphone"/></button>
             )}
-            
+
             {error && <p style={{ color: 'red' }}>{error}</p>}
+
             {result && (
-                <div>
-                    <p>Extracted Text: {result.extractedText}</p>
-                    <p>Similarity Score: {result.similarityScore.toFixed(2)}%</p>
+                <div className='similarity-result'>
+                    <p>Extracted Word <span>{result.extractedText}</span></p>
+                    <p>Similarity Score <span>{result.similarityScore.toFixed(2)}%</span></p>
                 </div>
             )}
             {audioBlob && (
                 <div>
-                    <button onClick={() => downloadBlob(audioBlob, 'recorded_audio.webm')}>
-                        Download Audio
+                    <button onClick={() => downloadBlob(audioBlob, 'recorded_audio.webm')} style={{paddingRight:"15px",marginTop:"5vh"}}>
+                    <img width="48" height="48" src="https://img.icons8.com/keek/100/download.png" alt="download"/>
+                    <span style={{fontSize:'18px', color:"white"}}>Download Audio</span>
                     </button>
                     {/* <audio controls src={URL.createObjectURL(audioBlob)} /> */}
                 </div>
