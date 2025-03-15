@@ -8,13 +8,15 @@ import ProfilePage from './pages/ProfilePage';
 import QuestsPage from './pages/QuestsPage';
 import DailyPage from './pages/DailyPage';
 import LoginPage from './pages/LoginPage';
+import SignUpPage from './pages/SignUpPage';
 
 
 function App() {
     return (
     <Router>
         <Routes>
-        <Route path="/login" element={<LoginPage />} /> {/* Add login route */}
+        <Route path="/signup" element={<SignUpPage/>}/>
+        <Route path="/login" element={<LoginPage />} />
           <Route path="/" element={<AppLayout />}>
             <Route index element={<HomePage />} />
             <Route path="letters" element={<LettersPage />} />

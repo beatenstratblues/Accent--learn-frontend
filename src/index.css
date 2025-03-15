@@ -806,24 +806,27 @@ html, body {
 }
 
 .login-box {
-  background-color: #30363d;
+  background-color: #202F36;
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   text-align: center;
-  width: 350px;
+  width: 380px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid #37464F;
 }
 
 .login-box h2 {
   color: white;
   margin-bottom: 20px;
+  font-size: 24px;
 }
 
 .input-group {
-  margin-bottom: 15px;
+  margin-bottom: 18px;
+  width: 100%;
 }
 
 .input-group input {
@@ -832,37 +835,67 @@ html, body {
   border: none;
   border-radius: 5px;
   font-size: 16px;
+  background-color: #37464F;
+  color: white;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-group input::placeholder {
+  color: #aaa;
+}
+
+.input-group input:focus {
+  outline: 2px solid #4A4DFE;
 }
 
 .login-button {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   border: none;
   border-radius: 5px;
-  background-color: #4a90e2;
+  background-color: #4A4DFE;
   color: white;
   font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
 }
 
 .login-button:hover {
-  background-color: #357abd;
+  background-color: #3A3DDD;
+  transform: translateY(-2px);
 }
+
+.login-button:active {
+  transform: translateY(0);
+}
+
 
 .terms-text {
   margin-top: 15px;
   font-size: 12px;
   color: #b0b0b0;
+  line-height: 1.5;
 }
 
 .link {
   color: #4a90e2;
   cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #4A4DFE;
+  text-decoration: underline;
 }
 
 .heroImage img {
   width: 500px;
 }
+
+
 
 /* Quests Page */
 
