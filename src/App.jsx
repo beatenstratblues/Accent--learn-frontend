@@ -7,12 +7,14 @@ import WordsPages from './pages/WordsPages';
 import ProfilePage from './pages/ProfilePage';
 import QuestsPage from './pages/QuestsPage';
 import DailyPage from './pages/DailyPage';
+import LoginPage from './pages/LoginPage';
 
 
 function App() {
     return (
     <Router>
         <Routes>
+        <Route path="/login" element={<LoginPage />} /> {/* Add login route */}
           <Route path="/" element={<AppLayout />}>
             <Route index element={<HomePage />} />
             <Route path="letters" element={<LettersPage />} />
