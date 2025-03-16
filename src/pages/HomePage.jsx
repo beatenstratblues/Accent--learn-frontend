@@ -7,7 +7,6 @@ import UserContext from "../context/AuthContext";
 function HomePage() {
 
   const { userData } = useContext(UserContext);
-  console.log(userData);
   // Mock user data - in a real app, you would fetch this from your backend
   const [UserData, setUserData] = useState({
     username: "User123",
@@ -75,7 +74,7 @@ function HomePage() {
       <div className="welcome-banner">
         <div className="welcome-content">
           <h1>
-            {greeting}, {UserData.username}!
+            {greeting}, {userData.name}!
           </h1>
           <p>Ready to improve your pronunciation today?</p>
         </div>
