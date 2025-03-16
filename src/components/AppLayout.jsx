@@ -5,8 +5,14 @@ import { Link } from "react-router-dom";
 const AppLayout = () => {
   const navigate = new useNavigate();
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login")
+  };
+  
+
   return (
-        <div className="app-container">
+      <div className="app-container">
       <aside className="sidebar">
         <div className="logo"><img width="50" height="50" src="https://img.icons8.com/ios/50/40C057/parrot-speaking.png" alt="parrot-speaking"/><span>Accentra</span></div>
         <nav className="nav-buttons">
@@ -22,6 +28,7 @@ const AppLayout = () => {
         <div className="top-buttons">
           <div><img width="40" height="40" src="https://img.icons8.com/fluency/48/treasure-chest.png" alt="treasure-chest"/><span style={{color:'gold'}}>Quests</span></div>
           <div><img width="35" height="35" src="https://img.icons8.com/ios-filled/50/40C057/rating-circled.png" alt="rating-circled"/><span>Points</span></div>
+          <div onClick={handleLogout}><img width="40" height="40" src="https://img.icons8.com/fluency/48/exit--v1.png" alt="exit--v1"/><span style={{color:"#1F99EC"}}>Log out</span></div>
         </div>
       </header>
 
