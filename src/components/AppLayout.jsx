@@ -1,12 +1,16 @@
 import React from 'react'
 import {Outlet, useNavigate} from 'react-router-dom'
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import UserContext from "../context/AuthContext";
 
 const AppLayout = () => {
   const navigate = new useNavigate();
+  const { clearUser } = useContext(UserContext);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
+    clearUser();
     navigate("/login")
   };
   

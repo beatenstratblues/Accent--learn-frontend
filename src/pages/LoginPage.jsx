@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import AppLogo from "../components/AppLogo";
 import hero from "../assets/HeroImage.png";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import UserContext from "../context/AuthContext";
 
 const LoginPage = () => {
   const [emailOrUsername, setEmailOrUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const { updateUser } = useContext(UserContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -24,6 +27,7 @@ const LoginPage = () => {
       if (!response.ok) {
         setError(data.message || "Login failed");
       } else {
+        updateUser(data.user);
         localStorage.setItem("token", data.token); // Store token for authentication
         navigate("/");
       }

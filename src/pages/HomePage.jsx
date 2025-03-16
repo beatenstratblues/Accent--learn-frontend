@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import UserContext from "../context/AuthContext";
+
 
 function HomePage() {
+
+  const { userData } = useContext(UserContext);
+  console.log(userData);
   // Mock user data - in a real app, you would fetch this from your backend
-  const [userData, setUserData] = useState({
+  const [UserData, setUserData] = useState({
     username: "User123",
     points: 250,
     questsCompleted: 8,
@@ -69,7 +75,7 @@ function HomePage() {
       <div className="welcome-banner">
         <div className="welcome-content">
           <h1>
-            {greeting}, {userData.username}!
+            {greeting}, {UserData.username}!
           </h1>
           <p>Ready to improve your pronunciation today?</p>
         </div>
@@ -88,7 +94,7 @@ function HomePage() {
                 alt="points"
               />
             </div>
-            <div className="stat-number">{userData.points}</div>
+            <div className="stat-number">{UserData.points}</div>
             <div className="stat-label">Total Points</div>
           </div>
           <div className="stat-card">
@@ -100,7 +106,7 @@ function HomePage() {
                 alt="quests"
               />
             </div>
-            <div className="stat-number">{userData.questsCompleted}</div>
+            <div className="stat-number">{UserData.questsCompleted}</div>
             <div className="stat-label">Quests Completed</div>
           </div>
           <div className="stat-card">
@@ -112,7 +118,7 @@ function HomePage() {
                 alt="streak"
               />
             </div>
-            <div className="stat-number">{userData.streak}</div>
+            <div className="stat-number">{UserData.streak}</div>
             <div className="stat-label">Day Streak</div>
           </div>
           <div className="stat-card">
@@ -124,7 +130,7 @@ function HomePage() {
                 alt="level"
               />
             </div>
-            <div className="stat-number">{userData.level}</div>
+            <div className="stat-number">{UserData.level}</div>
             <div className="stat-label">Current Level</div>
           </div>
         </div>
@@ -157,7 +163,7 @@ function HomePage() {
         <div className="recent-activity">
           <h2>Recent Activity</h2>
           <div className="activity-list">
-            {userData.recentActivities.map((activity, index) => (
+            {UserData.recentActivities.map((activity, index) => (
               <div key={index} className="activity-item">
                 <div className="activity-date">{activity.date}</div>
                 <div className="activity-info">{activity.activity}</div>
