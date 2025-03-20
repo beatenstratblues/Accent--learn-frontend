@@ -14,6 +14,8 @@ function AlphabetRecorder() {
     const audioContextRef = useRef(null);
 
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+
+    console.log(import.meta.env.VITE_ML_URL);
     
     // Helper function to get phonetic pronunciation for letters
     const getLetterPhonetic = (letter) => {
@@ -175,7 +177,7 @@ function AlphabetRecorder() {
             console.log(`Sending audio with reference text: "${selectedLetter.toLowerCase()}"`);
             console.log('Audio blob size:', Math.round(blob.size / 1024), 'KB');
             
-            const response = await axios.post('http://127.0.0.1:5000/process_audio', formData, {
+            const response = await axios.post(`${import.meta.env.VITE_ML_URL}/process_audio`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             

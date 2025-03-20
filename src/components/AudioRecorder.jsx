@@ -90,7 +90,7 @@ function AudioRecorder() {
         formData.append('originalSampleRate', audioContextRef.current?.sampleRate || '0'); // Send this info to backend
         
         try {
-            const response = await axios.post('http://127.0.0.1:5000/process_audio', formData, {
+            const response = await axios.post(`${import.meta.env.VITE_ML_URL}/process_audio`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             setResult(response.data);
