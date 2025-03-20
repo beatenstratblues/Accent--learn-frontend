@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
 
-function DailyChallengeAudioRecorder(dailyWord) {
+function DailyChallengeAudioRecorder({ dailyWord }) {  // Changed to destructure the prop correctly
     const [recording, setRecording] = useState(false);
     const [audioBlob, setAudioBlob] = useState(null);
     const [referenceText, setReferenceText] = useState('');
@@ -86,7 +86,7 @@ function DailyChallengeAudioRecorder(dailyWord) {
     const sendAudio = async (blob) => {
         const formData = new FormData();
         formData.append('audio', blob, 'recording.webm');  // Always use .webm extension for consistency
-        if(dailyWord!==referenceText){
+        if(dailyWord !== referenceText){
           alert('Wrong word is typed!');
           return
         }
@@ -96,7 +96,7 @@ function DailyChallengeAudioRecorder(dailyWord) {
         formData.append('originalSampleRate', audioContextRef.current?.sampleRate || '0'); // Send this info to backend
         
         try {
-            const response = await axios.post('http://127.0.0.1:5000/process_audio', formData, {
+            const response = await axios.post(`${import.meta.env.VITE_ML_URL}/process_audio`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             setResult(response.data);
